@@ -5,17 +5,19 @@ VisualStudioVersion = 16.0.30225.117
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinarySearchTree", "BinarySearchTree\BinarySearchTree.csproj", "{2AC16708-B3A1-494B-B4AB-AFBB5030B8D7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompleteBinaryTree", "CompleteBinaryTree\CompleteBinaryTree.csproj", "{72B0D18B-785C-4504-A0F3-2AF30D96313C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CompleteBinaryTree", "CompleteBinaryTree\CompleteBinaryTree.csproj", "{72B0D18B-785C-4504-A0F3-2AF30D96313C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoublyLinkedList", "DoublyLinkedList\DoublyLinkedList.csproj", "{A71151FE-6D69-4BA9-B14A-443617A9A1DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DoublyLinkedList", "DoublyLinkedList\DoublyLinkedList.csproj", "{A71151FE-6D69-4BA9-B14A-443617A9A1DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Queues", "Queues\Queues.csproj", "{9B28010F-E47E-49BE-A8C4-D27B93D2B605}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Queues", "Queues\Queues.csproj", "{9B28010F-E47E-49BE-A8C4-D27B93D2B605}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchAlgorithms", "SearchAlgorithms\SearchAlgorithms.csproj", "{0F3C6BBE-6C7B-41B3-9B5F-2BC753487D53}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SearchAlgorithms", "SearchAlgorithms\SearchAlgorithms.csproj", "{0F3C6BBE-6C7B-41B3-9B5F-2BC753487D53}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SinglyLinkedList", "SinglyLinkedList\SinglyLinkedList.csproj", "{BAD31C72-A4A4-49A9-935D-4BF58461107F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SinglyLinkedList", "SinglyLinkedList\SinglyLinkedList.csproj", "{BAD31C72-A4A4-49A9-935D-4BF58461107F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stacks", "Stacks\Stacks.csproj", "{E30F5307-1DFC-48C1-992D-89492673C992}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stacks", "Stacks\Stacks.csproj", "{E30F5307-1DFC-48C1-992D-89492673C992}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Expression.Evaluation", "Expression.Evaluation\Expression.Evaluation.csproj", "{51DCEC82-99D5-4D36-BD2E-B766EE8D06F4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{E30F5307-1DFC-48C1-992D-89492673C992}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E30F5307-1DFC-48C1-992D-89492673C992}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E30F5307-1DFC-48C1-992D-89492673C992}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51DCEC82-99D5-4D36-BD2E-B766EE8D06F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51DCEC82-99D5-4D36-BD2E-B766EE8D06F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51DCEC82-99D5-4D36-BD2E-B766EE8D06F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51DCEC82-99D5-4D36-BD2E-B766EE8D06F4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
