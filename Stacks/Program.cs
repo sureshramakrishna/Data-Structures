@@ -4,9 +4,9 @@ namespace Stacks
 {
     class Stack<T>
     {
-        int maxSize;
-        int top = -1;
         T[] items;
+        int maxSize, top = -1;
+        public int Count => top + 1;
         public Stack(int capacity)
         {
             maxSize = capacity;
@@ -15,30 +15,19 @@ namespace Stacks
         public void Push(T item)
         {
             if (top == maxSize - 1)
-            {
-                Console.WriteLine("Stack Overflow...");
-                return;
-            }
-            Console.WriteLine($"Inserting {item}");
+                throw new StackOverflowException("Stack over flow!");
             items[++top] = item;
         }
         public T Pop()
         {
             if (top == -1)
-            {
-                Console.WriteLine("Stack Underflow...");
-                return default; //we are returning default here, you can choose to throw an error instead.
-            }
-            Console.WriteLine($"Removing {items[top]}");
+                throw new Exception("Stack empty!");
             return items[top--];
         }
         public T Peek()
         {
             if (top == -1)
-            {
-                Console.WriteLine("Stack Empty...");
-                return default; //we are returning default here, you can choose to throw an error instead.
-            }
+                throw new Exception("Stack empty!");
             return items[top];
         }
     }
@@ -48,10 +37,14 @@ namespace Stacks
         {
             Stack<int> stack = new Stack<int>(5);
             for (int i = 0; i <= 5; i++) //Using <= to simulate overflow.
-                stack.Push(i);
+                if (stack.Count < 5)
+                    stack.Push(i);
+
             Console.WriteLine($"Peeking stack: {stack.Peek()}");
+
             for (int i = 0; i <= 5; i++) //Using <= to simulate underflow.
-                stack.Pop();
+                if (stack.Count > 0)
+                    stack.Pop();
         }
     }
 }
