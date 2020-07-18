@@ -5,22 +5,20 @@ namespace DoublyLinkedList
     class Node<T>
     {
         public T Data;
-        public Node<T> Next;
-        public Node<T> Prev;
+        public Node<T> Next, Prev;
         public Node(T data)
         {
             Data = data;
-            Next = Prev = null;
         }
     }
     class DoublyLinkedList<T>
     {
-        Node<T> Head = null;
-        Node<T> Last = null;
-
+        Node<T> Head, Last;
+        public int Count;
         public void Insert(T data)
         {
             Node<T> item = new Node<T>(data);
+            Count++;
             if (Head == null)
                 Head = Last = item;
             else
@@ -34,10 +32,9 @@ namespace DoublyLinkedList
         public T RemoveLast()
         {
             if (Head == null)
-            {
-                Console.WriteLine("Linked list empty...");
-                return default;
-            }
+                throw new Exception("Linked list empty...");
+            
+            Count--;
             if (Head.Next == null)
             {
                 var item = Head.Data;
@@ -56,10 +53,9 @@ namespace DoublyLinkedList
         public T RemoveFirst()
         {
             if (Head == null)
-            {
-                Console.WriteLine("Linked list empty...");
-                return default;
-            }
+                throw new Exception("Linked list empty...");
+
+            Count--;
             var item = Head.Data;
             if (Head.Next == null)
                 Head = Last = null;
@@ -74,13 +70,12 @@ namespace DoublyLinkedList
         public T Remove(T searchItem)
         {
             if (Head == null)
-            {
-                Console.WriteLine($"Cannot find item {searchItem}");
-                return default;
-            }
+                throw new Exception("Linked list empty...");
+
             T item;
             if (Head.Data.Equals(searchItem))
             {
+                Count--;
                 item = Head.Data;
                 Head = Head.Next;
                 if (Head != null)
@@ -93,11 +88,9 @@ namespace DoublyLinkedList
                 current = current.Next;
 
             if (current == null)
-            {
-                Console.WriteLine($"Cannot find item {searchItem}");
-                return default;
-            }
+                throw new Exception($"Cannot find item {searchItem}");
 
+            Count--;
             item = current.Data;
             if (current.Next == null)
             {
@@ -121,7 +114,6 @@ namespace DoublyLinkedList
                 linkedList.Insert(i);
             Console.WriteLine($"Removing first item : {linkedList.RemoveFirst()}");
             Console.WriteLine($"Removing last item : {linkedList.RemoveLast()}");
-            Console.WriteLine($"Removing item {linkedList.Remove(6)}"); //To check if last item was really removed.
             Console.WriteLine($"Removing item {linkedList.Remove(3)}");
             Console.WriteLine($"Removing item {linkedList.Remove(1)}");
             Console.WriteLine($"Removing item {linkedList.Remove(5)}");
