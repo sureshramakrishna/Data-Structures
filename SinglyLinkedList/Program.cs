@@ -6,19 +6,20 @@ namespace SinglyLinkedList
     {
         public T Data;
         public Node<T> Next;
-        public Node(T data)
-        {
+
+        public Node(T data) {
             Data = data;
-            Next = null;
         }
     }
     class LinkedList<T>
     {
         Node<T> Head = null;
         Node<T> Last = null;
+        public int Count;
         public void Insert(T data)
         {
             Node<T> item = new Node<T>(data);
+            Count++;
             if (Head == null)
                 Head = Last = item;
             else
@@ -31,10 +32,8 @@ namespace SinglyLinkedList
         public T RemoveLast()
         {
             if (Head == null)
-            {
-                Console.WriteLine("Linked list empty...");
-                return default;
-            }
+                throw new Exception("Linked list empty");
+            Count--;
             if (Head.Next == null)
             {
                 var item = Head.Data;
@@ -56,10 +55,9 @@ namespace SinglyLinkedList
         public T RemoveFirst()
         {
             if (Head == null)
-            {
-                Console.WriteLine("Linked list empty...");
-                return default;
-            }
+                throw new Exception("Linked list empty");
+
+            Count--;
             var item = Head.Data;
             if (Head.Next == null)
                 Head = Last = null;
@@ -71,15 +69,14 @@ namespace SinglyLinkedList
         public T Remove(T searchItem)
         {
             if (Head == null)
-            {
-                Console.WriteLine($"Cannot find item {searchItem}");
-                return default;
-            }
+                throw new Exception("Linked list empty");
+
             T item;
             if (Head.Data.Equals(searchItem))
             {
                 item = Head.Data;
                 Head = Head.Next;
+                Count--;
                 return item;
             }
 
@@ -90,19 +87,15 @@ namespace SinglyLinkedList
                 current = current.Next;
             }
             if (current == null)
-            {
-                Console.WriteLine($"Cannot find item {searchItem}");
-                return default;
-            }
+                throw new Exception($"Cannot find item {searchItem}");
 
+            Count--;
             item = current.Data;
-            if (current.Next == null)
-            {
+            if (current.Next == null)  {
                 Last = prev;
                 prev.Next = null;
             }
-            else
-            {
+            else  {
                 prev.Next = current.Next;
                 current.Next = null; //not actually required.
             }
@@ -118,7 +111,6 @@ namespace SinglyLinkedList
                 linkedList.Insert(i);
             Console.WriteLine($"Removing first item : {linkedList.RemoveFirst()}");
             Console.WriteLine($"Removing last item : {linkedList.RemoveLast()}");
-            Console.WriteLine($"Removing item {linkedList.Remove(6)}"); //To check if last item was really removed.
             Console.WriteLine($"Removing item {linkedList.Remove(3)}");
             Console.WriteLine($"Removing item {linkedList.Remove(1)}");
             Console.WriteLine($"Removing item {linkedList.Remove(5)}");
