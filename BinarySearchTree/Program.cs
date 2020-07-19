@@ -56,7 +56,7 @@ namespace BinarySearchTree
                 root.Right = Remove(root.Right, key);
             else
             {
-                if (root.Left == null) // node with only one child or no child  
+                if (root.Left == null) // node with only one child or no child. In no child case, root.Right is null, so no need to handle it sperately.
                     return root.Right;
                 else if (root.Right == null)
                     return root.Left;
@@ -123,6 +123,8 @@ namespace BinarySearchTree
             BinarySearchTree<int> bst = new BinarySearchTree<int>();
             bst.Add(50);
             bst.Add(30);
+            bst.Add(60);
+            bst.Delete(30);
             bst.Add(20);
             bst.Add(40);
             bst.Add(70);
