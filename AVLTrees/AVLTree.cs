@@ -1,5 +1,7 @@
 ﻿using System;
-
+/// <summary>
+/// Refer https://www.programiz.com/dsa/avl-tree for Rotations
+/// </summary>
 namespace AVLTrees
 {
     internal class Node
