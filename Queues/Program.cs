@@ -2,67 +2,65 @@
 
 namespace Queues
 {
-    class Queue<T>
-    {
-        int _front, _rear, _maxSize;
-        T[] _items;
-
-        //Can be full if front is in 0th position and rear is at the end or if front is somewhere in middle and Rear is just behind that.
-        public bool IsFull => (_front == _rear + 1) || (_front == 0 && _rear == _maxSize - 1);
-        public bool IsEmpty => _front == -1;
-
-        public Queue(int capacity)
-        {
-            _maxSize = capacity;
-            _front = _rear = -1;
-            _items = new T[capacity];
-        }
-
-        public void Enqueue(T item)
-        {
-            if (IsFull)
-                throw new Exception("Queue full!");
-            if (_front == -1)
-                _front = 0;
-            _rear = (_rear + 1) % _maxSize;
-            _items[_rear] = item;
-        }
-        public T Dequeue()
-        {
-            if (IsEmpty)
-                throw new Exception("Queue empty!");
-            var item = _items[_front];
-            if (_front == _rear)
-                _front = _rear = -1;
-            else
-                _front = (_front + 1) % _maxSize;
-            return item;
-        }
-        public T Peek()
-        {
-            if (IsEmpty)
-                throw new Exception("Queue empty!");
-            return _items[_front];
-        }
-    }
     class Program
     {
         static void Main(string[] _)
         {
+            QueueDriver();
+            CircularQueueDriver();
+            DeQueueDriver();
+        }
+
+        /// <summary>
+        /// Standard Queue test drive
+        /// </summary>
+        static void QueueDriver()
+        {
             Queue<int> queue = new Queue<int>(5);
 
-            for (int i = 0; i <= 5; i++) //Using <= to simulate overflow.
+            for (int i = 0; i <= 5; i++)
                 if (!queue.IsFull)
                     queue.Enqueue(i);
-
             queue.Dequeue();
-            queue.Enqueue(0);
-
+            if (!queue.IsFull)  //Fails with Queue and Succeeds with Circular Queue.
+                queue.Enqueue(0);
             Console.WriteLine($"Peeking Queue: {queue.Peek()}");
-
             for (int i = 0; i <= 5; i++) //Using <= to simulate underflow.
                 if (!queue.IsEmpty)
                     queue.Dequeue();
+        }
+
+        /// <summary>
+        /// Circular Queue test drive
+        /// </summary>
+        static void CircularQueueDriver()
+        {
+            CircularQueue<int> cQueue = new CircularQueue<int>(5);
+
+            for (int i = 0; i <= 5; i++)
+                if (!cQueue.IsFull)
+                    cQueue.Enqueue(i);
+            cQueue.Dequeue();
+            if (!cQueue.IsFull)  //Fails with Queue and Succeeds with Circular Queue.
+                cQueue.Enqueue(0);
+            Console.WriteLine($"Peeking Queue: {cQueue.Peek()}");
+            for (int i = 0; i <= 5; i++) //Using <= to simulate underflow.
+                if (!cQueue.IsEmpty)
+                    cQueue.Dequeue();
+        }
+
+        /// <summary>
+        /// DeQueue test drive
+        /// </summary>
+        static void DeQueueDriver()
+        {
+            DeQueue<int> deQueue = new DeQueue<int>(5);
+            deQueue.InsertFront(0);
+            deQueue.InsertFront(1);
+            deQueue.InsertRear(2);
+            deQueue.InsertRear(3);
+            deQueue.DeleteFront();
+            deQueue.DeleteRear();
         }
     }
 }

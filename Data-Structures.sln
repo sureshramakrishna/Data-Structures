@@ -19,7 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stacks", "Stacks\Stacks.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Expression.Evaluation", "Expression.Evaluation\Expression.Evaluation.csproj", "{51DCEC82-99D5-4D36-BD2E-B766EE8D06F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AVLTrees", "AVLTrees\AVLTrees.csproj", "{22F8EBEF-3032-443F-A94B-A8778027F1E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AVLTrees", "AVLTrees\AVLTrees.csproj", "{22F8EBEF-3032-443F-A94B-A8778027F1E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedBlackTrees", "RedBlackTrees\RedBlackTrees.csproj", "{8AD3BDF4-D62E-4E45-A831-C15D109EA67E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{22F8EBEF-3032-443F-A94B-A8778027F1E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22F8EBEF-3032-443F-A94B-A8778027F1E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22F8EBEF-3032-443F-A94B-A8778027F1E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AD3BDF4-D62E-4E45-A831-C15D109EA67E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AD3BDF4-D62E-4E45-A831-C15D109EA67E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AD3BDF4-D62E-4E45-A831-C15D109EA67E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AD3BDF4-D62E-4E45-A831-C15D109EA67E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
