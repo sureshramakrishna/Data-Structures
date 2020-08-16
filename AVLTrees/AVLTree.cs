@@ -65,8 +65,13 @@ namespace AVLTrees
                 }
                 else
                 {
-                    //Replace the current node with the smallest number in right sub tree and delete that smallest node in right subtree
-                    if (current.right != null)
+                    //If any of the children node is null, then return the other child.
+                    //If both left & right is not null, Replace the current node with the smallest number in right sub tree and delete that smallest node in right subtree
+                    if (current.right == null || current.left == null)
+                    {
+                        return current.right == null? current.left : current.right;
+                    }
+                    else
                     {
                         parent = current.right;
                         while (parent.left != null)
@@ -75,10 +80,6 @@ namespace AVLTrees
                         current.data = parent.data;
                         current.right = RecursiveDelete(current.right, parent.data);
                         BalanceTree(current);
-                    }
-                    else
-                    {
-                        return current.left;
                     }
                 }
             }
