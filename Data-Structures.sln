@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinarySearchTree", "BinaryS
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CompleteBinaryTree", "CompleteBinaryTree\CompleteBinaryTree.csproj", "{72B0D18B-785C-4504-A0F3-2AF30D96313C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DoublyLinkedList", "DoublyLinkedList\DoublyLinkedList.csproj", "{A71151FE-6D69-4BA9-B14A-443617A9A1DD}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Queues", "Queues\Queues.csproj", "{9B28010F-E47E-49BE-A8C4-D27B93D2B605}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SearchAlgorithms", "SearchAlgorithms\SearchAlgorithms.csproj", "{0F3C6BBE-6C7B-41B3-9B5F-2BC753487D53}"
@@ -25,6 +23,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedBlackTrees", "RedBlackTr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HashTable", "HashTable\HashTable.csproj", "{983BE8A5-0200-4B4A-B5E2-267ACDBE3ED4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Collections", "Collections\Collections.csproj", "{E7AD4B0A-9176-49D8-8679-17CCEA190126}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,10 +39,6 @@ Global
 		{72B0D18B-785C-4504-A0F3-2AF30D96313C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{72B0D18B-785C-4504-A0F3-2AF30D96313C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{72B0D18B-785C-4504-A0F3-2AF30D96313C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A71151FE-6D69-4BA9-B14A-443617A9A1DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A71151FE-6D69-4BA9-B14A-443617A9A1DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A71151FE-6D69-4BA9-B14A-443617A9A1DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A71151FE-6D69-4BA9-B14A-443617A9A1DD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9B28010F-E47E-49BE-A8C4-D27B93D2B605}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9B28010F-E47E-49BE-A8C4-D27B93D2B605}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9B28010F-E47E-49BE-A8C4-D27B93D2B605}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -75,6 +71,10 @@ Global
 		{983BE8A5-0200-4B4A-B5E2-267ACDBE3ED4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{983BE8A5-0200-4B4A-B5E2-267ACDBE3ED4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{983BE8A5-0200-4B4A-B5E2-267ACDBE3ED4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7AD4B0A-9176-49D8-8679-17CCEA190126}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7AD4B0A-9176-49D8-8679-17CCEA190126}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7AD4B0A-9176-49D8-8679-17CCEA190126}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7AD4B0A-9176-49D8-8679-17CCEA190126}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
