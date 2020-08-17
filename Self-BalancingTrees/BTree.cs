@@ -24,15 +24,15 @@ namespace Self_BalancingTrees
         public void Push(int k)
         {
             int i;
-            for (i = nCount - 1; i >= 0 && k < Keys[i]; i--)
-                Keys[i + 1] = Keys[i];
+            for (i = nCount; i > 0 && k < Keys[i - 1]; i--)
+                Keys[i] = Keys[i - 1];
             Keys[i] = k;
             nCount++;
         }
         public int GetLinkIndex(int k)
         {
             int i;
-            for (i = 0; i < nCount - 1 && k < Keys[i]; i++) ;
+            for (i = 0; i < nCount && Keys[i] < k; i++) ;
             return i;
         }
     }
@@ -55,8 +55,16 @@ namespace Self_BalancingTrees
                 root.Push(splitKey);
                 root.Links[0] = left;
                 root.Links[1] = right;
+                root.Leaf = false;
             }
         }
+        /// <summary>
+        /// Splits Overloaded node in to 2 node and returns the middle element.
+        /// </summary>
+        /// <param name="x">Node to be split</param>
+        /// <param name="x1">left half of the node</param>
+        /// <param name="x2">right half of the node</param>
+        /// <returns>Middle element of the x node</returns>
         private int Split(Node x, out Node x1, out Node x2)
         {
             x1 = new Node(T);
@@ -74,8 +82,8 @@ namespace Self_BalancingTrees
             {
                 for (int i = 0; i <= splitOrder; i++)
                 {
-                    x1.Keys[i] = x.Keys[i];
-                    x2.Keys[i] = x.Keys[i + splitOrder + 1];
+                    x1.Links[i] = x.Links[i];
+                    x2.Links[i] = x.Links[i + splitOrder + 1];
                 }
             }
             x1.nCount = x2.nCount = splitOrder;
@@ -88,18 +96,24 @@ namespace Self_BalancingTrees
             else
             {
                 var index = root.GetLinkIndex(key);
-                var node = root.Links[index];
-                Insert(node, key);
-                if (node.IsOverLoaded)
+                Insert(root.Links[index], key);
+                if (root.Links[index].IsOverLoaded)
                 {
-                    var splitKey = Split(node, out Node left, out Node right);
-                    root.Push(splitKey);
-                    for (int i = root.nCount; i >= 0 && i > index; i--)
+                    var splitKey = Split(root.Links[index], out Node left, out Node right);
+                    //Make space for the new link to hold the extra node that we created while split.
+                    for (int i = root.nCount; i > 0 && i > index; i--)
                         root.Links[i + 1] = root.Links[i];
+                    root.Push(splitKey);
                     root.Links[index] = left;
                     root.Links[index + 1] = right;
+                    root.Leaf = false;
                 }
             }
+        }
+
+        public void Remove(int key)
+        {
+
         }
     }
 }
