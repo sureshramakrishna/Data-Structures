@@ -17,15 +17,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stacks", "Stacks\Stacks.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Expression.Evaluation", "Expression.Evaluation\Expression.Evaluation.csproj", "{51DCEC82-99D5-4D36-BD2E-B766EE8D06F4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AVLTrees", "AVLTrees\AVLTrees.csproj", "{22F8EBEF-3032-443F-A94B-A8778027F1E1}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedBlackTrees", "RedBlackTrees\RedBlackTrees.csproj", "{8AD3BDF4-D62E-4E45-A831-C15D109EA67E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HashTable", "HashTable\HashTable.csproj", "{983BE8A5-0200-4B4A-B5E2-267ACDBE3ED4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HashTable", "HashTable\HashTable.csproj", "{983BE8A5-0200-4B4A-B5E2-267ACDBE3ED4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Collections", "Collections\Collections.csproj", "{E7AD4B0A-9176-49D8-8679-17CCEA190126}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Collections", "Collections\Collections.csproj", "{E7AD4B0A-9176-49D8-8679-17CCEA190126}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Self-BalancingTrees", "Self-BalancingTrees\Self-BalancingTrees.csproj", "{246F113A-0A89-4BC5-9124-A61687B380AA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Self-BalancingTrees", "Self-BalancingTrees\Self-BalancingTrees.csproj", "{246F113A-0A89-4BC5-9124-A61687B380AA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,10 +59,6 @@ Global
 		{51DCEC82-99D5-4D36-BD2E-B766EE8D06F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{51DCEC82-99D5-4D36-BD2E-B766EE8D06F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{51DCEC82-99D5-4D36-BD2E-B766EE8D06F4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{22F8EBEF-3032-443F-A94B-A8778027F1E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{22F8EBEF-3032-443F-A94B-A8778027F1E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{22F8EBEF-3032-443F-A94B-A8778027F1E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{22F8EBEF-3032-443F-A94B-A8778027F1E1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8AD3BDF4-D62E-4E45-A831-C15D109EA67E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8AD3BDF4-D62E-4E45-A831-C15D109EA67E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8AD3BDF4-D62E-4E45-A831-C15D109EA67E}.Release|Any CPU.ActiveCfg = Release|Any CPU

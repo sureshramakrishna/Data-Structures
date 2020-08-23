@@ -2,20 +2,20 @@
 /// <summary>
 /// Refer https://www.programiz.com/dsa/avl-tree for Rotations
 /// </summary>
-namespace AVLTrees
+namespace Self_BalancingTrees
 {
-    internal class Node
-    {
-        public int data;
-        public Node left;
-        public Node right;
-        public Node(int data)
-        {
-            this.data = data;
-        }
-    }
     class AVL
     {
+        class Node
+        {
+            public int data;
+            public Node left;
+            public Node right;
+            public Node(int data)
+            {
+                this.data = data;
+            }
+        }
         Node root;
         public void Add(int data)
         {

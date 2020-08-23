@@ -10,82 +10,83 @@ namespace Self_BalancingTrees
     /// Watch this video for deletion.
     /// https://www.youtube.com/watch?v=GKa_t7fF8o0
     /// </summary>
-    public class Node
-    {
-        public int MAX, nCount;
-        public int[] Keys;
-        public Node[] Children;
-        public bool IsLeaf;
-        public bool IsFull => nCount == MAX;
-        public bool IsOverLoaded => nCount == MAX + 1;
-        public Node(int m)
-        {
-            MAX = m;
-            Keys = new int[MAX + 1];
-            Children = new Node[MAX + 2];
-            IsLeaf = true;
-        }
-        /// <summary>
-        /// Makes space for the new key by pushing the existing keys to the right and inserts the new key at the appropriate position.
-        /// </summary>
-        /// <param name="k"></param>
-        public void Push(int k)
-        {
-            int i;
-            for (i = nCount; i > 0 && k < Keys[i - 1]; i--)
-            {
-                Keys[i] = Keys[i - 1];
-                if (!IsLeaf)
-                    Children[i + 1] = Children[i];
-            }
-            //needed when new key is being inserted in 1st index, then we should also push the first child to the right.
-            if(i == 0 && !IsLeaf)
-                Children[1] = Children[0];
-            Keys[i] = k;
-            nCount++;
-        }
-        /// <summary>
-        /// Gets the index of the subtree which might contain the key
-        /// </summary>
-        /// <param name="key"></param>
-        /// <returns></returns>
-        public int GetChildIndex(int key)
-        {
-            int index;
-            for (index = 0; index < nCount && Keys[index] < key; index++) ;
-            return index;
-        }
-        /// <summary>
-        /// returns the index of the key if exists, else returns int.MinValue.
-        /// </summary>
-        /// <param name="key"></param>
-        /// <returns></returns>
-        public int HasKey(int key)
-        {
-            for (int i = 0; i < nCount; i++)
-                if (Keys[i] == key)
-                    return i;
-            return int.MinValue;
-        }
-        /// <summary>
-        /// Merges current node with node n. Copies all the keys and children to the current node.
-        /// NOTE: this method is invoked after adding parent key to the current node. See merge operation for more details.
-        /// </summary>
-        /// <param name="n"></param>
-        public void Merge(Node n)
-        {
-            for (int index = nCount; index < n.nCount + this.nCount; index++)
-                this.Keys[index] = n.Keys[index - this.nCount];
-            if (!this.IsLeaf)
-            {
-                for (int index = nCount; index < this.nCount + n.nCount + 1; index++)
-                    this.Children[index] = n.Children[index - this.nCount];
-            }
-            this.nCount = n.nCount + this.nCount;
-        }
-    }
     class BTree
     {
+        public class Node
+        {
+            public int MAX, nCount;
+            public int[] Keys;
+            public Node[] Children;
+            public bool IsLeaf;
+            public bool IsFull => nCount == MAX;
+            public bool IsOverLoaded => nCount == MAX + 1;
+            public Node(int m)
+            {
+                MAX = m;
+                Keys = new int[MAX + 1];
+                Children = new Node[MAX + 2];
+                IsLeaf = true;
+            }
+            /// <summary>
+            /// Makes space for the new key by pushing the existing keys to the right and inserts the new key at the appropriate position.
+            /// </summary>
+            /// <param name="k"></param>
+            public void Push(int k)
+            {
+                int i;
+                for (i = nCount; i > 0 && k < Keys[i - 1]; i--)
+                {
+                    Keys[i] = Keys[i - 1];
+                    if (!IsLeaf)
+                        Children[i + 1] = Children[i];
+                }
+                //needed when new key is being inserted in 1st index, then we should also push the first child to the right.
+                if (i == 0 && !IsLeaf)
+                    Children[1] = Children[0];
+                Keys[i] = k;
+                nCount++;
+            }
+            /// <summary>
+            /// Gets the index of the subtree which might contain the key
+            /// </summary>
+            /// <param name="key"></param>
+            /// <returns></returns>
+            public int GetChildIndex(int key)
+            {
+                int index;
+                for (index = 0; index < nCount && Keys[index] < key; index++) ;
+                return index;
+            }
+            /// <summary>
+            /// returns the index of the key if exists, else returns int.MinValue.
+            /// </summary>
+            /// <param name="key"></param>
+            /// <returns></returns>
+            public int HasKey(int key)
+            {
+                for (int i = 0; i < nCount; i++)
+                    if (Keys[i] == key)
+                        return i;
+                return int.MinValue;
+            }
+            /// <summary>
+            /// Merges current node with node n. Copies all the keys and children to the current node.
+            /// NOTE: this method is invoked after adding parent key to the current node. See merge operation for more details.
+            /// </summary>
+            /// <param name="n"></param>
+            public void Merge(Node n)
+            {
+                for (int index = nCount; index < n.nCount + this.nCount; index++)
+                    this.Keys[index] = n.Keys[index - this.nCount];
+                if (!this.IsLeaf)
+                {
+                    for (int index = nCount; index < this.nCount + n.nCount + 1; index++)
+                        this.Children[index] = n.Children[index - this.nCount];
+                }
+                this.nCount = n.nCount + this.nCount;
+            }
+        }
+
         private readonly int T;
         Node root;
         public BTree(int t)

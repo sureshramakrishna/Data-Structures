@@ -6,6 +6,21 @@ namespace Self_BalancingTrees
     {
         static void Main(string[] args)
         {
+            AVLTreeDriver();
+            BTreeDriver();
+        }
+        static void AVLTreeDriver()
+        {
+            AVL avlTree = new AVL();
+            avlTree.Add(10);
+            avlTree.Add(12);
+            avlTree.Add(8);
+            avlTree.Add(6);
+            avlTree.Add(5);
+            avlTree.Delete(5);
+        }
+        static void BTreeDriver()
+        {
             BTree btree = new BTree(2);
             btree.Add(23);
             btree.Add(27);
