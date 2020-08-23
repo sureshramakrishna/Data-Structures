@@ -25,7 +25,13 @@ namespace Self_BalancingTrees
         {
             int i;
             for (i = nCount; i > 0 && k < Keys[i - 1]; i--)
+            {
                 Keys[i] = Keys[i - 1];
+                if (!IsLeaf)
+                    Children[i + 1] = Children[i];
+            }
+            if(i == 0 && !IsLeaf)
+                Children[1] = Children[0];
             Keys[i] = k;
             nCount++;
         }
@@ -120,9 +126,6 @@ namespace Self_BalancingTrees
                 if (root.Children[index].IsOverLoaded)
                 {
                     var splitKey = Split(root.Children[index], out Node left, out Node right);
-                    //Make space for the new link to hold the extra node that we created while split.
-                    for (int i = root.nCount; i > 0 && i > index; i--)
-                        root.Children[i + 1] = root.Children[i];
                     root.Push(splitKey);
                     root.Children[index] = left;
                     root.Children[index + 1] = right;
@@ -156,24 +159,44 @@ namespace Self_BalancingTrees
         {
             int index;
             for (index = 0; index < x.nCount && x.Keys[index] != key; index++) ;
-            for (int i = index + 1; i < x.nCount; i++)
-                x.Keys[i - 1] = x.Keys[i];
+            for (int i = index; i < x.nCount - 1; i++)
+                x.Keys[i] = x.Keys[i + 1];
             if (!x.IsLeaf)
             {
-                for (int i = index + 1; i <= x.nCount; i++)
-                    x.Children[i - 1] = x.Children[i];
+                for (int i = index; i < x.nCount; i++)
+                    x.Children[i] = x.Children[i + 1];
             }
             x.nCount--;
+            for (int i = x.nCount; i < x.MAX; i++)
+                x.Keys[i] = 0;
+            for (int i = x.nCount + 1; i <= x.MAX; i++)
+                x.Children[i] = null;
         }
 
         void Borrow(Node x, Node parent, int pIndex, int sIndex, bool isPredecessor)
         {
             var sibling = parent.Children[sIndex];
             var sItem = sibling.Keys[isPredecessor ? sibling.nCount - 1 : 0];
-            DeleteFromNode(sibling, sItem);
             var pItem = parent.Keys[pIndex];
             parent.Keys[pIndex] = sItem;
             x.Push(pItem);
+            if(!x.IsLeaf)
+            { 
+                if(isPredecessor)
+                { 
+                    x.Children[0] = sibling.Children[sibling.nCount];
+                    sibling.nCount--;
+                    sibling.Keys[sibling.nCount] = 0;
+                    sibling.Children[sibling.nCount + 1] = null;
+                }
+                else
+                { 
+                    x.Children[x.nCount] = sibling.Children[0];
+                    DeleteFromNode(sibling, sItem);
+                }
+            }
+            else
+                DeleteFromNode(sibling, sItem);
         }
 
         private void Merge(Node parent, int cIndex, int sIndex)
