@@ -19,6 +19,7 @@ namespace SegmentTree
     /// <summary>
     /// Implementation of segment tree for Min in a give range.
     /// Can also be used for Max or Sum of a given range
+    /// https://www.youtube.com/watch?v=ZBHKZF5w4YU
     /// </summary>
     class SegmentTree
     {
